@@ -93,11 +93,17 @@ class MyApp extends StatelessWidget {
             body: Column(
               children: [
                 Text("The Question !"),
-                RaisedButton(child: Text("Question 1"), onPressed: null),
-                RaisedButton(child: Text("Question 2"), onPressed: null),
-                RaisedButton(child: Text("Question 3"), onPressed: null),
-                RaisedButton(child: Text("Question 4"), onPressed: null),
+                RaisedButton(child: Text("Question 1"), onPressed: answerQuestion),
+                RaisedButton(child: Text("Question 2"), onPressed: answerQuestion),
+                RaisedButton(child: Text("Question 3"), onPressed: ()=>print("Button on pressed online")),
+                RaisedButton(child: Text("Question 4"), onPressed: (){
+                  print("anser body print");
+                }),
               ],
             )));
+  }
+
+  void answerQuestion() {
+    print("Anser Pressed");
   }
 }
