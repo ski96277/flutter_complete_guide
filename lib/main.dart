@@ -84,6 +84,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(home: Text("Hello ! "));
+    return MaterialApp(home: Scaffold(
+        appBar: AppBar(title:Text("Home Page"),backgroundColor: Colors.green,),
+    body: Text("This is text body"), ));
   }
 }
