@@ -84,8 +84,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(home: Scaffold(
-        appBar: AppBar(title:Text("Home Page"),backgroundColor: Colors.green,),
-    body: Text("This is text body"), ));
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text("Home Page"),
+              backgroundColor: Colors.green,
+            ),
+            body: Column(
+              children: [
+                Text("The Question !"),
+                RaisedButton(child: Text("Question 1"), onPressed: null),
+                RaisedButton(child: Text("Question 2"), onPressed: null),
+                RaisedButton(child: Text("Question 3"), onPressed: null),
+                RaisedButton(child: Text("Question 4"), onPressed: null),
+              ],
+            )));
   }
 }
