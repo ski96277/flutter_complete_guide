@@ -80,10 +80,18 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var _index=0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    var questions = ["what\'s your name ? ","what\'s your .. ? ",];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
@@ -92,11 +100,14 @@ class MyApp extends StatelessWidget {
             ),
             body: Column(
               children: [
-                Text("The Question !"),
-                RaisedButton(child: Text("Question 1"), onPressed: answerQuestion),
-                RaisedButton(child: Text("Question 2"), onPressed: answerQuestion),
-                RaisedButton(child: Text("Question 3"), onPressed: ()=>print("Button on pressed online")),
-                RaisedButton(child: Text("Question 4"), onPressed: (){
+                Text(questions[_index]),
+                RaisedButton(
+                    child: Text("Question 1"), onPressed: answerQuestion),
+                RaisedButton(
+                    child: Text("Question 2"), onPressed: answerQuestion),
+                RaisedButton(child: Text("Question 3"),
+                    onPressed: () => print("Button on pressed online")),
+                RaisedButton(child: Text("Question 4"), onPressed: () {
                   print("anser body print");
                 }),
               ],
@@ -104,6 +115,12 @@ class MyApp extends StatelessWidget {
   }
 
   void answerQuestion() {
-    print("Anser Pressed");
+    setState(() {
+
+      _index=_index+1;
+
+    });
+
+    print("Anser Pressed  = $_index");
   }
 }
