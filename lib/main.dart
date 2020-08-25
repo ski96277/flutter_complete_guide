@@ -75,6 +75,7 @@
 //}
 
 import 'package:flutter/material.dart';
+import 'package:fluttercompleteguide/question.dart';
 
 void main() {
   runApp(MyApp());
@@ -100,7 +101,7 @@ class _MyAppState extends State<MyApp> {
             ),
             body: Column(
               children: [
-                Text(questions[_index]),
+                Question(questions[_index]),
                 RaisedButton(
                     child: Text("Question 1"), onPressed: answerQuestion),
                 RaisedButton(
