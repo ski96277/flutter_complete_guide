@@ -75,6 +75,7 @@
 //}
 
 import 'package:flutter/material.dart';
+import 'package:fluttercompleteguide/answer.dart';
 import 'package:fluttercompleteguide/question.dart';
 
 void main() {
@@ -87,12 +88,26 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _index=0;
+  var _index = 0;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    var questions = ["what\'s your name ? ","what\'s your .. ? ",];
+    var questions = [
+      {
+        'questionText': 'What is  your favorite color ?',
+        'answer': ['black', 'red', 'green', 'white']
+      },
+      {
+        'questionText': 'What is  your favorite animal ?',
+        'answer': ['Rabbit', 'Snack', 'Elephant', 'Lion']
+      },
+      {
+        'questionText': 'Who is your favorite instructor ?',
+        'answer': ['Mitu', 'Siam', 'Imran', 'SK']
+      },
+
+    ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
@@ -101,25 +116,17 @@ class _MyAppState extends State<MyApp> {
             ),
             body: Column(
               children: [
-                Question(questions[_index]),
-                RaisedButton(
-                    child: Text("Question 1"), onPressed: answerQuestion),
-                RaisedButton(
-                    child: Text("Question 2"), onPressed: answerQuestion),
-                RaisedButton(child: Text("Question 3"),
-                    onPressed: () => print("Button on pressed online")),
-                RaisedButton(child: Text("Question 4"), onPressed: () {
-                  print("anser body print");
-                }),
+                Question(questions [_index]['questionText']),
+                AnswerBtn("Question 1", _answerQuestion),
+                AnswerBtn("Question 2", _answerQuestion),
+                AnswerBtn("Question 3", _answerQuestion),
               ],
             )));
   }
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-
-      _index=_index+1;
-
+      _index = _index + 1;
     });
 
     print("Anser Pressed  = $_index");
