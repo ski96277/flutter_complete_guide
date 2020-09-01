@@ -5,7 +5,7 @@ class AnswerBtn extends StatelessWidget {
 
   final Function selectHandler;
 
-  AnswerBtn(this.question, this.selectHandler);
+  AnswerBtn(this.selectHandler,this.question);
 
   @override
   Widget build(BuildContext context) {
