@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercompleteguide/answer.dart';
 import 'package:fluttercompleteguide/question.dart';
+import 'package:fluttercompleteguide/quize.dart';
+import 'package:fluttercompleteguide/result.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,16 +40,9 @@ class _MyAppState extends State<MyApp> {
               title: Text("Home Page"),
               backgroundColor: Colors.green,
             ),
-            body: _index<questions.length?Column(
-              children: [
-                Question(
-                  questions[_index]['questionText'],
-                ),
-                ...(questions[_index]['answer'] as List<String>).map((answer) {
-                  return AnswerBtn(_answerQuestion, answer);
-                }).toList()
-              ],
-            ):Center(child: Text("You Did it ! "),)));
+            body: _index<questions.length?
+                Quize(_answerQuestion,questions,_index)
+                :Result()));
   }
 
   void _answerQuestion() {
